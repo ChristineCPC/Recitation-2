@@ -7,7 +7,23 @@
 # ***************************************************
 
 def crypto(filename, cypher):
-    pass # TODO please replace this line with your code
+    fh = open(filename)
+    file_content = fh.readlines()
+    print(file_content)
+    with open(filename, 'r') as fh, open(filename + '.enc', 'w') as fhenc:
+        for line in fh:
+            eLine = ''
+            for ch in line:
+                eLine += cypher(ch)
+            fhenc.write(eLine)
+            #print(eLine)
+            with open (filename, 'w') as fh:
+                fh.write(eLine)
+            with open (filename) as fh:
+                fh.readlines()
+
+
+
 
 # DO NOT touch the lines below
 
